@@ -1,5 +1,5 @@
 <template lang="pug">
-  .container
+  .container(:class="{'is-loading': loadFullyFinished}")
     nuxt
     .loading(:class="{'is-loading': loadFinished}")
       .loading-wrapper
@@ -18,6 +18,7 @@ export default {
   data() {
     return {
       loadFinished: false,
+      loadFullyFinished: false,
       loadProcess: 0
     }
   },
@@ -68,6 +69,10 @@ export default {
       video.addEventListener('canplaythrough', (e) => {
         setTimeout(() => {
           this.loadFinished = true
+
+          setTimeout(() => {
+            this.loadFullyFinished = true
+          }, 2400)
         }, 1000)
       })
 
@@ -79,12 +84,15 @@ export default {
 
 <style lang="scss">
 @import url('https://rsms.me/inter/inter.css');
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP:500,700&display=swap');
+
 body {
   margin: 0;
-  background-color: #ffffff;
+  background-color: #fafafa;
 
   * {
-    font-family: 'norms', 'Inter', sans-serif;
+    box-sizing: border-box;
+    font-family: 'norms', 'Inter', 'Noto Sans JP', sans-serif;
   }
 }
 
@@ -103,17 +111,27 @@ h3 {
   margin: 0 0 20px auto;
 }
 
+.container {
+  max-height: 100vh;
+  overflow: hidden;
+
+  &.is-loading {
+    max-height: unset;
+  }
+}
+
 .loading {
   position: absolute;
   top: 0;
   left: 0;
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   opacity: 1;
   background-color: #ffffff;
   pointer-events: all;
   transition: 0.4s ease-in;
   z-index: 3;
+  overflow: hidden;
 
   .loading-wrapper {
     position: absolute;
@@ -265,8 +283,35 @@ h3 {
   }
 }
 
+.col-2-1 {
+  position: relative;
+  display: inline-block;
+  padding: 60px 20px;
+  width: 50%;
+  vertical-align: top;
+
+  @media screen and (max-width: 640px) {
+    width: 100%;
+  }
+}
+
 @font-face {
   font-family: 'norms';
   src: url('~assets/fonts/TTNorms-Medium.ttf');
+}
+
+::-webkit-scrollbar {
+  width: 3px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background-color: #cecece;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #212121;
+  border-radius: 3px;
 }
 </style>

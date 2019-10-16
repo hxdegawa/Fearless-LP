@@ -2,6 +2,8 @@
   .hero
     span.logo-text Fearless Inc.
     video(src='~assets/videos/test-movie.mp4' :style="{ 'mask-position': maskOffset}" autoplay muted loop).hero-movie
+    .scroll-icon
+    span.scroll-text Scroll down!
 </template>
 
 <script>
@@ -30,8 +32,6 @@ export default {
 
       this.cursorOffset.X = (screenSize.X / 2 - e.clientX) / 30
       this.cursorOffset.Y = (screenSize.Y / 2 - e.clientY) / 30
-
-      console.log(this.cursorOffset)
     })
   }
 }
@@ -40,12 +40,9 @@ export default {
 <style lang="scss" scoped>
 .hero {
   position: relative;
-  width: 100vw;
+  display: inline-block !important;
+  width: 100%;
   height: 100vh;
-
-  @media screen and (max-width: 640px) {
-    pointer-events: none;
-  }
 
   .logo-text {
     position: absolute;
@@ -56,6 +53,63 @@ export default {
     font-size: 42px;
     transform: translate(-50%, -50%);
     filter: drop-shadow(2px 2px 0px #ffffff);
+  }
+
+  .scroll-icon {
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 30px;
+    width: 18px;
+    background-color: #cecece;
+    border-radius: 10px;
+
+    &:before {
+      content: '';
+      position: absolute;
+      height: 26px;
+      width: 14px;
+      top: calc(90% - 12px);
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 10px;
+      background-color: #fafafa;
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      height: 6px;
+      width: 2px;
+      top: calc(90% - 20px);
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 10px;
+      background-color: #cecece;
+      animation: scrollAnim 1s ease-in infinite alternate;
+    }
+  }
+
+  .scroll-text {
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, calc(-50% + 50px));
+    color: #cecece;
+    letter-spacing: 1px;
+  }
+
+  @media screen and (max-width: 640px) {
+    pointer-events: none;
+
+    .scroll-icon {
+      display: none;
+    }
+
+    .scroll-text {
+      top: 80%;
+    }
   }
 
   .hero-movie {
@@ -80,6 +134,15 @@ export default {
       left: 50%;
       transform: translate(-50%, -50%);
       mask-size: 280px 210px;
+    }
+
+    @keyframes scrollAnim {
+      from {
+        top: calc(90% - 20px);
+      }
+      to {
+        top: calc(90% - 14px);
+      }
     }
   }
 }
