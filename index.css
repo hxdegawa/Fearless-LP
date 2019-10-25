@@ -1,0 +1,436 @@
+body {
+  margin: 0
+}
+
+body * {
+  font-family: 'Noto Sans JP', sans-serif
+}
+
+body hr {
+  margin: 20px 0
+}
+
+header {
+  position: relative;
+  width: 100%;
+  min-height: 64px;
+  background-color: #fff;
+  -webkit-filter: drop-shadow(0px 3px 3px #cecece);
+  filter: drop-shadow(0px 3px 3px #cecece)
+}
+
+header .inner-margin {
+  display: block;
+  max-width: 1240px;
+  margin: 0 auto
+}
+
+header .inner-margin .logo-image {
+  display: block;
+  -o-object-fit: contain;
+  object-fit: contain;
+  max-height: 80px;
+  margin: 0 auto;
+  padding: 20px 0
+}
+
+main {
+  position: relative;
+  max-width: 1240px;
+  margin: 0 auto
+}
+
+main .container {
+  width: 100%
+}
+
+main h2 {
+  font-size: 22px;
+  letter-spacing: 2px;
+  font-weight: 400;
+  text-align: center;
+  margin: 40px 0
+}
+
+main p {
+  letter-spacing: 2px;
+  color: #5F5F5F;
+  font-weight: 600;
+  line-height: 1.4rem;
+  font-size: 17px
+}
+
+main .main-text>img {
+  max-width: 100%;
+  -o-object-fit: contain;
+  object-fit: contain
+}
+
+main .carousel-wrapper {
+  position: relative
+}
+
+main .carousel-wrapper .owl-carousel {
+  max-width: 100%
+}
+
+main .carousel-wrapper .owl-carousel img {
+  -o-object-fit: contain;
+  object-fit: contain
+}
+
+@media only screen and (max-width:690px) {
+  main .carousel-wrapper .owl-carousel img {
+    width: 100vw!important
+  }
+}
+
+main .carousel-wrapper .left,
+main .carousel-wrapper .right {
+  position: absolute;
+  z-index: 5;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  background-color: #fafafa;
+  border-radius: 100%;
+  cursor: pointer
+}
+
+main .carousel-wrapper .left {
+  left: 20px
+}
+
+main .carousel-wrapper .right {
+  right: 20px
+}
+
+main [class*="tip-"] {
+  position: relative;
+  display: block;
+  font-size: 14px;
+  letter-spacing: 1px;
+  font-weight: 600
+}
+
+main [class*="value-"] {
+  position: relative;
+  display: inline-block;
+  font-size: 32px
+}
+
+main .left-column {
+  padding: 0 20px 20px 20px
+}
+
+main .right-column {
+  padding: 0
+}
+
+main .right-column .auction-info {
+  background-color: #f4f4f4
+}
+
+main .right-column .card {
+  position: relative;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  background-color: #f5f8fa;
+  width: 100%;
+  padding: 20px;
+  margin-top: 30px
+}
+
+main .right-column .card.current-prize {
+  background-color: #fffdcc
+}
+
+main .right-column .card.current-prize:before {
+  position: absolute;
+  content: attr(data-purchased);
+  left: 0;
+  top: 0;
+  background-color: #fffa65;
+  text-align: center;
+  font-weight: bold;
+  letter-spacing: 1px;
+  font-size: 1.1rem;
+  width: 50%;
+  min-height: 40px;
+  line-height: 40px
+}
+
+main .right-column .card.current-prize:after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 40px 40px 0 0;
+  border-color: #fffa65 transparent transparent transparent
+}
+
+main .right-column .card .prize-image {
+  display: block;
+  width: 100%;
+  -o-object-fit: contain;
+  object-fit: contain;
+  margin-bottom: 10px
+}
+
+main .right-column .card .prize-price {
+  position: relative;
+  float: right;
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-top: 1rem;
+  min-width: 4rem
+}
+
+main .right-column .card .prize-price:before {
+  content: "關ｽ譛ｭ鬆�ｽ�";
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  bottom: calc(100% - 5px);
+  letter-spacing: 1px;
+  font-weight: 600;
+  font-size: .6rem
+}
+
+main .right-column .card .prize-name {
+  display: inline-block;
+  font-size: 1.2rem;
+  margin-top: 1rem
+}
+
+main .right-column .card ul {
+  list-style: none;
+  padding-left: 0
+}
+
+main .right-column .card ul li {
+  padding-left: 0;
+  font-size: calc(.8rem + 3px)
+}
+
+main .right-column .card .prize-description {
+  margin: 16px 0;
+  font-size: calc(.8rem + 3px)
+}
+
+@media only screen and (max-width:690px) {
+  main .right-column .card ul li {
+    font-size: .8rem
+  }
+}
+
+main .right-column .card ul li:before {
+  content: "-";
+  margin-right: 8px
+}
+
+main .right-column .card .prize-purchase {
+  position: relative
+}
+
+main .right-column .card .prize-purchase:before {
+  position: absolute;
+  min-height: 42px;
+  content: "";
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(calc(-50% + 2px), calc(-50% + 2px));
+  transform: translate(calc(-50% + 2px), calc(-50% + 2px));
+  display: block;
+  background-color: #000;
+  margin: 0 auto;
+  cursor: pointer;
+  width: 160px;
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+  font-weight: 800;
+  line-height: 38px
+}
+
+main .right-column .card .prize-purchase a {
+  position: relative;
+  border: solid 1px #000;
+  background-color: #fff;
+  outline: none;
+  display: block;
+  margin: 0 auto;
+  cursor: pointer;
+  width: 160px;
+  color: #000;
+  text-align: center;
+}
+
+main .right-column .card .prize-purchase a span {
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+  font-weight: 800;
+  line-height: 38px
+}
+
+[class*="col-"] {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 20px;
+  word-wrap: break-word;
+  word-break: break-all
+}
+
+@media only screen and (max-width:690px) {
+  [class*="col-"] {
+    width: 100%!important
+  }
+  [class*="col-"]:not(.keep) {
+    padding: 0
+  }
+}
+
+.col-5-5 {
+  width: 100%
+}
+
+.col-4-5 {
+  width: 80%
+}
+
+.col-3-5 {
+  width: 60%
+}
+
+.col-2-5 {
+  width: 40%
+}
+
+.col-1-5 {
+  width: 20%
+}
+
+.owl-dots {
+  text-align: center
+}
+
+.owl-dot {
+  border: solid 1px #707070!important;
+  height: 10px;
+  width: 10px;
+  border-radius: 5px;
+  -webkit-transition: 0.2s ease;
+  transition: 0.2s ease;
+  margin-right: 10px
+}
+
+.owl-dot:last-child {
+  margin-right: 0
+}
+
+.owl-dot.active {
+  background-color: #707070!important
+}
+
+footer {
+  border-top: solid 1px #212121;
+  margin: 10px 0 0 0
+}
+
+footer .footer-logo-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 20px 0;
+  position: relative;
+  margin: 0 auto;
+  max-width: 1240px
+}
+
+@media screen and (max-width:960px) {
+  footer .footer-logo-wrapper {
+    display: block;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 10px 20px;
+    text-align: center
+  }
+  footer .footer-logo-wrapper>* {
+    display: block;
+    margin: 5px 0
+  }
+}
+
+footer .footer-logo-wrapper>a {
+  color: #212121;
+  text-decoration: none;
+  letter-spacing: 1px;
+  font-weight: 600
+}
+
+footer .footer-logo-wrapper>img {
+  -o-object-fit: contain;
+  object-fit: contain;
+  height: 100%
+}
+
+.purchase-bar {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.purchase-bar .purchase {
+  position: relative;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 20px 0
+}
+
+.purchase-bar .purchase:before {
+  position: absolute;
+  min-height: 42px;
+  content: "";
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(calc(-50% + 2px), calc(-50% + 2px));
+  transform: translate(calc(-50% + 2px), calc(-50% + 2px));
+  display: block;
+  background-color: #000;
+  margin: 0 auto;
+  cursor: pointer;
+  width: 160px;
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+  font-weight: 800;
+  line-height: 38px
+}
+
+.purchase-bar .purchase a {
+  position: relative;
+  border: solid 1px #000;
+  background-color: #fff;
+  outline: none;
+  display: block;
+  margin: 0 auto;
+  cursor: pointer;
+  width: 160px;
+  color: #000;
+  text-align: center;
+}
+
+.purchase-bar .purchase a span {
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+  font-weight: 800;
+  line-height: 38px
+}

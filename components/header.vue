@@ -43,6 +43,7 @@ export default {
   display: inline-block !important;
   width: 100%;
   height: 100vh;
+  background-color: #000000;
 
   .logo-text {
     position: absolute;
@@ -74,7 +75,7 @@ export default {
       left: 50%;
       transform: translate(-50%, -50%);
       border-radius: 10px;
-      background-color: #fafafa;
+      background-color: #000000;
     }
 
     &:after {
@@ -87,7 +88,7 @@ export default {
       transform: translate(-50%, -50%);
       border-radius: 10px;
       background-color: #cecece;
-      animation: scrollAnim 1s ease-in infinite alternate;
+      animation: scrollAnim 0.6s ease-in infinite alternate;
     }
   }
 
@@ -120,7 +121,6 @@ export default {
     top: calc(50% - 240px);
     left: calc(50% - 320px);
     object-fit: cover;
-    filter: grayscale(1);
     mask-image: url('~assets/Fearless_Logo.svg');
     mask-mode: alpha;
     mask-position: 50% 50%;
@@ -138,10 +138,10 @@ export default {
 
     @keyframes scrollAnim {
       from {
-        top: calc(90% - 20px);
+        top: calc(90% - 18px);
       }
       to {
-        top: calc(90% - 14px);
+        top: calc(90% - 13px);
       }
     }
   }

@@ -11,17 +11,37 @@ main
       .col-2-1
         img(src="~assets/Fearless_Logo.png").about-icon
 
+  section.works-section
+    .inner-margin
+      Heading Works
+      Card(v-for="(post, i) in posts" :key="i" :title="post.fields.title" :articleId="post.sys.id" :date="post.fields.date" :owner="post.fields.owner" :ownerUrl="post.fields.ownerUrl" :thumbnail="post.fields.thumbnail" :videoLink="post.fields.videoLink" :description="post.fields.description" :collaborators="post.fields.collaborators" :id="post.sys.id")
+
 </template>
 
 <script>
 import Header from '../components/header'
 import Heading from '../components/heading'
+import Card from '../components/card'
+import { createClient } from '~/plugins/contentful.js'
+
+const client = createClient()
 
 export default {
   layout: 'base',
   components: {
     Header,
-    Heading
+    Heading,
+    Card
+  },
+  asyncData({ env, params }) {
+    return client
+      .getEntries(env.CTF_BLOG_POST_TYPE_ID)
+      .then((entries) => {
+        return {
+          posts: entries.items
+        }
+      })
+      .catch(console.error)
   }
 }
 </script>
@@ -60,6 +80,10 @@ section {
       font-weight: 500;
       font-family: 'Noto Sans JP', sans-serif;
     }
+  }
+
+  &.works-section {
+    background-color: #fafafa;
   }
 }
 </style>

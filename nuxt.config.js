@@ -1,3 +1,10 @@
+const { getConfigForKeys } = require('./lib/config.js')
+const ctfConfig = getConfigForKeys([
+  'CTF_BLOG_POST_TYPE_ID',
+  'CTF_SPACE_ID',
+  'CTF_CDA_ACCESS_TOKEN'
+])
+
 module.exports = {
   mode: 'spa',
   /*
@@ -16,6 +23,11 @@ module.exports = {
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
+  env: {
+    CTF_SPACE_ID: ctfConfig.CTF_SPACE_ID,
+    CTF_CDA_ACCESS_TOKEN: ctfConfig.CTF_CDA_ACCESS_TOKEN,
+    CTF_BLOG_POST_TYPE_ID: ctfConfig.CTF_BLOG_POST_TYPE_ID
+  },
   /*
    ** Customize the progress-bar color
    */
@@ -23,11 +35,11 @@ module.exports = {
   /*
    ** Global CSS
    */
-  css: [],
+  css: ['~assets/css/animation.scss'],
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: ['~plugins/youtube-embed.js', '~plugins/vimeo-embed.js'],
   /*
    ** Nuxt.js dev-modules
    */
@@ -46,6 +58,6 @@ module.exports = {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {}
+    extend(config, ctx) { }
   }
 }

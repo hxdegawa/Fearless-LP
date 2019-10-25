@@ -1,7 +1,7 @@
 <template lang="pug">
   .container(:class="{'is-loading': loadFullyFinished}")
     nuxt
-    .loading(:class="{'is-loading': loadFinished}")
+    .loading(:class="{'is-loading': loadFinished}" v-if="isInitRender")
       .loading-wrapper
         img(src="~assets/Fearless_Logo.png").loading-logo
         span.loading-text Loading
@@ -14,6 +14,8 @@
 </template>
 
 <script>
+import { mapState, mapActions } from 'vuex'
+
 export default {
   data() {
     return {
@@ -23,61 +25,73 @@ export default {
     }
   },
   computed: {
+    ...mapState('main', ['isInitRender']),
     progressBar() {
       return `progress-${this.loadProcess}`
     }
   },
+  methods: {
+    ...mapActions('main', ['initialize'])
+  },
   mounted() {
-    window.addEventListener('load', (data) => {
-      const video = document.querySelector('.hero-movie')
-      let loadChecker
+    const initRenderStatus = () => this.initialize()
 
-      const checkVideoLoadProgress = () => {
-        switch (video.readyState) {
-          case 0:
-            this.loadProcess = 0
-            loadChecker = requestAnimationFrame(checkVideoLoadProgress)
-            break
+    if (this.isInitRender) {
+      window.addEventListener('load', (data) => {
+        const video = document.querySelector('.hero-movie')
+        let loadChecker
 
-          case 1:
-            this.loadProcess = 25
-            loadChecker = requestAnimationFrame(checkVideoLoadProgress)
-            break
+        const checkVideoLoadProgress = () => {
+          switch (video.readyState) {
+            case 0:
+              this.loadProcess = 0
+              loadChecker = requestAnimationFrame(checkVideoLoadProgress)
+              break
 
-          case 2:
-            this.loadProcess = 50
-            loadChecker = requestAnimationFrame(checkVideoLoadProgress)
-            break
+            case 1:
+              this.loadProcess = 25
+              loadChecker = requestAnimationFrame(checkVideoLoadProgress)
+              break
 
-          case 3:
-            this.loadProcess = 75
-            loadChecker = requestAnimationFrame(checkVideoLoadProgress)
-            break
+            case 2:
+              this.loadProcess = 50
+              loadChecker = requestAnimationFrame(checkVideoLoadProgress)
+              break
 
-          case 4:
-            this.loadProcess = 100
-            cancelAnimationFrame(loadChecker)
-            break
+            case 3:
+              this.loadProcess = 75
+              loadChecker = requestAnimationFrame(checkVideoLoadProgress)
+              break
 
-          default:
-            this.loadProcess = 0
-            loadChecker = requestAnimationFrame(checkVideoLoadProgress)
-            break
+            case 4:
+              this.loadProcess = 100
+              cancelAnimationFrame(loadChecker)
+              break
+
+            default:
+              this.loadProcess = 0
+              loadChecker = requestAnimationFrame(checkVideoLoadProgress)
+              break
+          }
         }
-      }
 
-      video.addEventListener('canplaythrough', (e) => {
-        setTimeout(() => {
-          this.loadFinished = true
-
+        video.addEventListener('canplaythrough', (e) => {
           setTimeout(() => {
-            this.loadFullyFinished = true
-          }, 2400)
-        }, 1000)
-      })
+            this.loadFinished = true
 
-      checkVideoLoadProgress()
-    })
+            setTimeout(() => {
+              this.loadFullyFinished = true
+              initRenderStatus()
+            }, 2400)
+          }, 1000)
+        })
+
+        checkVideoLoadProgress()
+      })
+    } else {
+      this.loadFinished = true
+      this.loadFullyFinished = true
+    }
   }
 }
 </script>
@@ -129,7 +143,6 @@ h3 {
   opacity: 1;
   background-color: #ffffff;
   pointer-events: all;
-  transition: 0.4s ease-in;
   z-index: 3;
   overflow: hidden;
 
