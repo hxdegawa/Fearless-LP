@@ -11,7 +11,7 @@ nuxt-link(v-else :to="{ name: 'works-slug', params: { slug: slug }}").link
       img(:src='`http:${thumbnail.fields.file.url}`').thumbnail
       .text-info
         span.title {{ title }}
-        span.date {{ date }}
+        //- span.date {{ date }}
 
 </template>
 
@@ -68,7 +68,7 @@ export default {
 
         .title {
           font-size: 10px;
-          margin-bottom: 10px;
+          // margin-bottom: 10px;
           font-weight: 600;
 
           &.fake {
