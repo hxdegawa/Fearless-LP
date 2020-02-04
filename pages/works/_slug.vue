@@ -14,22 +14,22 @@
           .content(v-html="sanitizedDesc(article.fields.description)")
           .credits(v-if="article.fields.collaborators")
             .col-1-2
-              .owner-wrapper(v-if="article.fields.ownerUrl")
-                a(:href="article.fields.ownerUrl")
-                  .owner {{ article.fields.owner }}
+              .owner-wrapper(v-if="article.fields.linkUrl")
+                a(:href="article.fields.linkUrl")
+                  .owner {{ article.fields.client }}
               .owner-wrapper(v-else)
-                .owner {{ article.fields.owner }}
+                .owner {{ article.fields.client }}
             .col-1-2
               ul.collaborators
                 li(v-for='(collaborator, i) in article.fields.collaborators' :keys='i')
                   span {{ collaborator }}
           .credits(v-else)
             .col-1-1
-              .owner-wrapper(v-if="article.fields.ownerUrl")
-                a(:href="article.fields.ownerUrl")
-                  .owner {{ article.fields.owner }}
+              .owner-wrapper(v-if="article.fields.linkUrl")
+                a(:href="article.fields.linkUrl")
+                  .owner {{ article.fields.client }}
               .owner-wrapper(v-else)
-                .owner {{ article.fields.owner }}
+                .owner {{ article.fields.client }}
 
       .links
         .col-1-2
