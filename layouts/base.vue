@@ -30,9 +30,6 @@ export default {
       return `progress-${this.loadProcess}`
     }
   },
-  methods: {
-    ...mapActions('main', ['initialize'])
-  },
   mounted() {
     const initRenderStatus = () => this.initialize()
 
@@ -92,6 +89,9 @@ export default {
       this.loadFinished = true
       this.loadFullyFinished = true
     }
+  },
+  methods: {
+    ...mapActions('main', ['initialize'])
   }
 }
 </script>

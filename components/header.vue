@@ -1,7 +1,7 @@
 <template lang="pug">
   .hero
     span.logo-text Fearless Inc.
-    video(src='~assets/videos/test-movie.mp4' :style="{ 'mask-position': maskOffset}" autoplay muted loop).hero-movie
+    video(src='~assets/videos/reel_2019.mp4' :style="{ 'mask-position': maskOffset}" autoplay muted loop).hero-movie
     .scroll-icon
     span.scroll-text Scroll down!
 </template>

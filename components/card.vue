@@ -1,5 +1,11 @@
 <template lang="pug">
-nuxt-link(:to="{ name: 'work-slug', params: { sys: articleId }}").link
+nuxt-link(v-if="isFake" to="/works").link
+  .card
+    .card-contents
+      img(:src='`${thumbnail.url}`').thumbnail
+      .text-info
+        span.title.fake {{ title }}
+nuxt-link(v-else :to="{ name: 'works-slug', params: { slug: slug }}").link
   .card
     .card-contents
       img(:src='`http:${thumbnail.fields.file.url}`').thumbnail
@@ -12,20 +18,11 @@ nuxt-link(:to="{ name: 'work-slug', params: { sys: articleId }}").link
 <script>
 export default {
   props: {
+    isFake: { type: Boolean, default: false },
     title: { type: String, required: true },
-    articleId: { type: String, required: true },
-    date: { type: String, required: true },
-    owner: { type: String, required: true },
-    ownerUrl: { type: String, default: null },
-    thumbnail: { type: Object, required: true },
-    videoLink: { type: String, required: true },
-    description: { type: Object, required: true },
-    collaborators: {
-      type: Array,
-      default: () => {
-        return []
-      }
-    }
+    slug: { type: String, default: '' },
+    date: { type: String, default: '' },
+    thumbnail: { type: Object, required: true }
   }
 }
 </script>
@@ -36,17 +33,8 @@ export default {
 
   .card {
     display: inline-block;
-    width: calc(100% / 4);
+    width: 100%;
     padding: 30px;
-
-    @media screen and (max-width: 960px) {
-      width: calc(100% / 2);
-    }
-
-    @media screen and (max-width: 480px) {
-      display: block;
-      width: 100%;
-    }
 
     &:hover {
       .card-contents {
@@ -82,6 +70,11 @@ export default {
           font-size: 10px;
           margin-bottom: 10px;
           font-weight: 600;
+
+          &.fake {
+            font-size: 10px;
+            line-height: 20px;
+          }
         }
 
         .date {

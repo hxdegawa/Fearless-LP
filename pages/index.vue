@@ -7,15 +7,22 @@ main
 
       .col-2-1
         h1.about-title Fearless Inc.
-        span 国内・海外において企画から納品までのブランディングを自社で手がける新時代広告制作会社
+        span 国内・海外において企画から納品までのブランディングを自社で手がける新時代広告制作会社。
       .col-2-1
         img(src="~assets/Fearless_Logo.png").about-icon
 
   section.works-section
     .inner-margin
       Heading Works
-      Card(v-for="(post, i) in posts" :key="i" :title="post.fields.title" :articleId="post.sys.id" :date="post.fields.date" :owner="post.fields.owner" :ownerUrl="post.fields.ownerUrl" :thumbnail="post.fields.thumbnail" :videoLink="post.fields.videoLink" :description="post.fields.description" :collaborators="post.fields.collaborators" :id="post.sys.id")
+      .work-cards
+        Card(v-for="(post, i) in posts.slice(0, 7)" :key="i" :title="post.fields.title" :slug="post.fields.slug" :date="post.fields.date" :thumbnail="post.fields.thumbnail" :id="post.sys.id")
+        Card(:isFake="true" :title="'他の作品をみる'" :thumbnail="{url: '/more.jpg'}")
 
+  section.mission-section
+    .inner-margin
+      Heading Missions
+      .col-2-1
+        h1.mission-title Our Mission
 </template>
 
 <script>
@@ -54,6 +61,19 @@ section {
   .inner-margin {
     max-width: 1280px;
     margin: 0 auto;
+
+    .work-cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+
+      @media screen and (max-width: 960px) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @media screen and (max-width: 480px) {
+        grid-template-columns: repeat(1, 1fr);
+      }
+    }
   }
 
   &.about-section {
@@ -84,6 +104,10 @@ section {
 
   &.works-section {
     background-color: #fafafa;
+  }
+
+  &.mission-section {
+    background-color: #ffffff;
   }
 }
 </style>

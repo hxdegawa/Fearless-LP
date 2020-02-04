@@ -1,7 +1,8 @@
 <template lang="pug">
 .works
   .inner-margin
-    Card(v-for="(work, i) in works" :key="i" :title="work.fields.title" :articleId="work.sys.id" :date="work.fields.date" :owner="work.fields.owner" :ownerUrl="work.fields.ownerUrl" :thumbnail="work.fields.thumbnail" :videoLink="work.fields.videoLink" :description="work.fields.description" :collaborators="work.fields.collaborators" :id="work.sys.id")
+    .work-cards
+      Card(v-for="(work, i) in works" :key="i" :title="work.fields.title" :slug="work.fields.slug" :date="work.fields.date" :thumbnail="work.fields.thumbnail" :id="work.sys.id")
 </template>
 
 <script>
@@ -33,6 +34,19 @@ export default {
   .inner-margin {
     max-width: 1280px;
     margin: 0 auto;
+
+    .work-cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+
+      @media screen and (max-width: 960px) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @media screen and (max-width: 480px) {
+        grid-template-columns: repeat(1, 1fr);
+      }
+    }
   }
 }
 </style>
