@@ -15,11 +15,17 @@ module.exports = {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      {
-        hid: 'description',
-        name: 'description',
-        content: process.env.npm_package_description || ''
-      }
+      { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:image', content: 'https://fearless-new.herokuapp.com/ogp.png' },
+      { name: 'twitter:description', content: 'Fearless - 国内・海外において企画から納品までのブランディングを自社で手がける新時代広告制作会社' },
+      { name: 'twitter:title', content: 'Fearless' },
+      { hid: 'description', name: 'description', content: 'Fearless - 国内・海外において企画から納品までのブランディングを自社で手がける新時代広告制作会社' },
+      { hid: 'og:site_name', property: 'og:site_name', content: 'Fearless' },
+      { hid: 'og:type', property: 'og:type', content: 'website' },
+      { hid: 'og:url', property: 'og:url', content: 'https://fearless-new.herokuapp.com/' },
+      { hid: 'og:title', property: 'og:title', content: 'Fearless' },
+      { hid: 'og:description', property: 'og:description', content: 'Fearless - 国内・海外において企画から納品までのブランディングを自社で手がける新時代広告制作会社' },
+      { hid: 'og:image', property: 'og:image', content: 'https://fearless-new.herokuapp.com/ogp.png' }
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
