@@ -37,54 +37,28 @@ export default {
   mounted() {
     if (this.$route.query.back !== 'true') {
       if (this.isInitRender) {
-        const video = document.querySelector('.hero-movie')
-        let loadChecker
+        this.loadProcess = 0
 
-        const checkVideoLoadProgress = () => {
-          switch (video.readyState) {
-            case 0:
-              this.loadProcess = 0
-              loadChecker = requestAnimationFrame(checkVideoLoadProgress)
-              break
+        setTimeout(() => {
+          this.loadProcess = 25
 
-            case 1:
-              this.loadProcess = 25
-              loadChecker = requestAnimationFrame(checkVideoLoadProgress)
-              break
+          setTimeout(() => {
+            this.loadProcess = 50
 
-            case 2:
-              this.loadProcess = 50
-              loadChecker = requestAnimationFrame(checkVideoLoadProgress)
-              break
-
-            case 3:
+            setTimeout(() => {
               this.loadProcess = 75
-              loadChecker = requestAnimationFrame(checkVideoLoadProgress)
-              break
 
-            case 4:
-              this.loadProcess = 100
-              cancelAnimationFrame(loadChecker)
-              this.completeVideoLoad()
-              break
+              setTimeout(() => {
+                this.loadProcess = 100
+                this.loadFinished = true
 
-            default:
-              this.loadProcess = 0
-              loadChecker = requestAnimationFrame(checkVideoLoadProgress)
-              break
-          }
-        }
-        checkVideoLoadProgress()
-        setTimeout(() => {
-          this.loadProcess = 75
-          loadChecker = requestAnimationFrame(checkVideoLoadProgress)
-        }, 2000)
-
-        this.completeVideoLoad()
-
-        setTimeout(() => {
-          this.completeVideoLoad()
-        }, 3000)
+                setTimeout(() => {
+                  this.loadFullyFinished = true
+                }, 2000)
+              }, 250)
+            }, 500)
+          }, 1000)
+        }, 1250)
       } else {
         this.loadFinished = true
         this.loadFullyFinished = true

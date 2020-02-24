@@ -111,6 +111,10 @@ section {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
 
+      .card {
+        height: 100%;
+      }
+
       @media screen and (max-width: 960px) {
         grid-template-columns: repeat(2, 1fr);
       }
