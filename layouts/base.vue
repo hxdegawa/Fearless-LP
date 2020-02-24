@@ -17,6 +17,10 @@
 import { mapState, mapActions } from 'vuex'
 
 export default {
+  transition: {
+    name: 'page',
+    mode: 'out-in'
+  },
   data() {
     return {
       loadFinished: false,
@@ -31,10 +35,8 @@ export default {
     }
   },
   mounted() {
-    const initRenderStatus = () => this.initialize()
-
-    if (this.isInitRender) {
-      window.addEventListener('load', (data) => {
+    if (this.$route.query.back !== 'true') {
+      if (this.isInitRender) {
         const video = document.querySelector('.hero-movie')
         let loadChecker
 
@@ -63,6 +65,7 @@ export default {
             case 4:
               this.loadProcess = 100
               cancelAnimationFrame(loadChecker)
+              this.completeVideoLoad()
               break
 
             default:
@@ -71,27 +74,48 @@ export default {
               break
           }
         }
-
-        video.addEventListener('canplaythrough', (e) => {
-          setTimeout(() => {
-            this.loadFinished = true
-
-            setTimeout(() => {
-              this.loadFullyFinished = true
-              initRenderStatus()
-            }, 2400)
-          }, 1000)
-        })
-
         checkVideoLoadProgress()
-      })
+        setTimeout(() => {
+          this.loadProcess = 75
+          loadChecker = requestAnimationFrame(checkVideoLoadProgress)
+        }, 2000)
+
+        this.completeVideoLoad()
+
+        setTimeout(() => {
+          this.completeVideoLoad()
+        }, 3000)
+      } else {
+        this.loadFinished = true
+        this.loadFullyFinished = true
+      }
     } else {
-      this.loadFinished = true
-      this.loadFullyFinished = true
+      this.loadProcess = 0
+      this.$nextTick(() => {
+        this.loadProcess = 75
+      })
+      setTimeout(() => {
+        this.loadProcess = 100
+        this.loadFinished = true
+
+        setTimeout(() => {
+          this.loadFullyFinished = true
+        }, 2000)
+      }, 1000)
     }
   },
   methods: {
-    ...mapActions('main', ['initialize'])
+    ...mapActions('main', ['initialize']),
+    completeVideoLoad() {
+      setTimeout(() => {
+        this.loadFinished = true
+
+        setTimeout(() => {
+          this.loadFullyFinished = true
+          this.initialize()
+        }, 2400)
+      }, 1000)
+    }
   }
 }
 </script>

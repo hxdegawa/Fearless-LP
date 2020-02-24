@@ -1,13 +1,24 @@
 <template lang="pug">
   .hero
     span.logo-text Fearless Inc.
-    video(src='~assets/videos/reel_2019.mp4' :style="{ 'mask-position': maskOffset}" autoplay muted loop).hero-movie
+    video(:style="{ 'mask-position': maskOffset}" playsinline autoplay muted loop).hero-movie#video
     .scroll-icon
     span.scroll-text Scroll down!
 </template>
 
 <script>
 export default {
+  head() {
+    return {
+      link: [
+        {
+          rel: 'preload',
+          as: 'video',
+          href: '/reel_2019.mp4'
+        }
+      ]
+    }
+  },
   data() {
     return {
       cursorOffset: {
@@ -33,6 +44,10 @@ export default {
       this.cursorOffset.X = (screenSize.X / 2 - e.clientX) / 30
       this.cursorOffset.Y = (screenSize.Y / 2 - e.clientY) / 30
     })
+
+    const video = document.querySelector('#video')
+    video.src = '/reel_2019.mp4'
+    video.play()
   }
 }
 </script>

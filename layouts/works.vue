@@ -2,7 +2,7 @@
   .works
     header.header
       .logo
-        nuxt-link(to="/")
+        nuxt-link(to="/?back=true")
           img(src='~assets/Fearless_Logo.png').logo-img
 
     nuxt
