@@ -1,7 +1,7 @@
 <template lang="pug">
   .container(:class="{'is-loading': loadFullyFinished}")
     nuxt
-    .loading(:class="{'is-loading': loadFinished}" v-if="isInitRender")
+    .loading(:class="{'is-loading': loadFinished}" v-if="isInitRender || !noAnimation")
       .loading-wrapper
         img(src="~assets/Fearless_Logo.png").loading-logo
         span.loading-text Loading
@@ -23,6 +23,7 @@ export default {
   },
   data() {
     return {
+      noAnimation: false,
       loadFinished: false,
       loadFullyFinished: false,
       loadProcess: 0
@@ -35,9 +36,12 @@ export default {
     }
   },
   mounted() {
+    console.log(this.isInitRender)
+
     if (this.$route.query.back !== 'true') {
       if (this.isInitRender) {
         this.loadProcess = 0
+        this.initialize()
 
         setTimeout(() => {
           this.loadProcess = 25
@@ -60,36 +64,18 @@ export default {
           }, 1000)
         }, 1250)
       } else {
+        this.noAnimation = true
         this.loadFinished = true
         this.loadFullyFinished = true
       }
     } else {
-      this.loadProcess = 0
-      this.$nextTick(() => {
-        this.loadProcess = 75
-      })
-      setTimeout(() => {
-        this.loadProcess = 100
-        this.loadFinished = true
-
-        setTimeout(() => {
-          this.loadFullyFinished = true
-        }, 2000)
-      }, 1000)
+      this.noAnimation = true
+      this.loadFinished = true
+      this.loadFullyFinished = true
     }
   },
   methods: {
-    ...mapActions('main', ['initialize']),
-    completeVideoLoad() {
-      setTimeout(() => {
-        this.loadFinished = true
-
-        setTimeout(() => {
-          this.loadFullyFinished = true
-          this.initialize()
-        }, 2400)
-      }, 1000)
-    }
+    ...mapActions('main', ['initialize'])
   }
 }
 </script>

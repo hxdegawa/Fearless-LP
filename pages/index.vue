@@ -290,7 +290,7 @@ section {
       grid-template-columns: repeat(2, 1fr);
       padding: 100px 0 0 0;
 
-      @media screen and (max-width: 480px) {
+      @media screen and (max-width: 960px) {
         grid-template-columns: repeat(1, 1fr);
         padding: 140px 0 0 0;
       }
@@ -303,7 +303,7 @@ section {
         width: 430px;
         filter: drop-shadow(3px 3px 10px #cecece);
 
-        @media screen and (max-width: 480px) {
+        @media screen and (max-width: 960px) {
           margin: 0 auto 160px auto;
           width: 100%;
 
