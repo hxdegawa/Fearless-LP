@@ -14,6 +14,9 @@ main
         .col
           img(src="~assets/Fearless_Logo.png").about-icon
 
+      .link-logo
+        nuxt-link(to="/logo") ロゴについてくわしく
+
   section.works-section
     .inner-margin
       Heading Works
@@ -151,6 +154,30 @@ section {
       object-fit: contain;
     }
 
+    .link-logo {
+      text-align: center;
+      padding-top: 30px;
+
+      a {
+        position: relative;
+        display: inline-block;
+        margin-top: 30px;
+        background-color: #ffc20e;
+        padding: 10px 30px;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 2px;
+        text-decoration: none;
+        border-radius: 5px;
+        transform: scale(1);
+        transition: 0.1s ease;
+
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+    }
+
     .cols {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -272,6 +299,12 @@ section {
           letter-spacing: 2px;
           text-decoration: none;
           border-radius: 5px;
+          transform: scale(1);
+          transition: 0.1s ease;
+
+          &:hover {
+            transform: scale(1.1);
+          }
 
           @media screen and (max-width: 768px) {
             display: block;
@@ -283,7 +316,11 @@ section {
   }
 
   &.profile-section {
-    padding: 40px 0;
+    padding: 40px 0 120px 0;
+
+    @media screen and (max-width: 960px) {
+      padding: 40px 0;
+    }
 
     .personal-cards {
       display: grid;
@@ -349,7 +386,9 @@ section {
 
           p {
             font-size: 13px;
+            font-weight: 400;
             letter-spacing: 1px;
+            font-family: 'Noto Sans JP', Arial, Helvetica, sans-serif;
             word-break: break-all;
           }
         }
@@ -367,6 +406,7 @@ section {
       padding: 40px 30px;
       filter: drop-shadow(3px 3px 10px #cecece);
       border-radius: 10px;
+      margin-top: 30px;
 
       span {
         display: block;
@@ -387,6 +427,10 @@ section {
         padding: 10px;
         font-size: 14px;
         resize: vertical;
+      }
+
+      textarea {
+        min-height: 200px;
       }
 
       .submit {

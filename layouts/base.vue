@@ -81,16 +81,12 @@ export default {
 </script>
 
 <style lang="scss">
-@import url('https://rsms.me/inter/inter.css');
-@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP:500,700&display=swap');
-
 body {
   margin: 0;
   background-color: #fafafa;
 
   * {
     box-sizing: border-box;
-    font-family: 'norms', 'Inter', 'Noto Sans JP', sans-serif;
   }
 }
 

@@ -16,18 +16,50 @@ module.exports = {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { name: 'twitter:card', content: 'summary_large_image' },
-      { name: 'twitter:image', content: 'https://fearlessf.herokuapp.com/ogp.png' },
-      { name: 'twitter:description', content: 'FEARLESS - 国内・海外において企画から納品までのブランディングを自社で手がける新時代広告制作会社' },
+      {
+        name: 'twitter:image',
+        content: 'https://fearlessf.herokuapp.com/ogp.png'
+      },
+      {
+        name: 'twitter:description',
+        content:
+          'FEARLESS - 国内・海外において企画から納品までのブランディングを自社で手がける新時代広告制作会社'
+      },
       { name: 'twitter:title', content: 'FEARLESS' },
-      { hid: 'description', name: 'description', content: 'FEARLESS - 国内・海外において企画から納品までのブランディングを自社で手がける新時代広告制作会社' },
+      {
+        hid: 'description',
+        name: 'description',
+        content:
+          'FEARLESS - 国内・海外において企画から納品までのブランディングを自社で手がける新時代広告制作会社'
+      },
       { hid: 'og:site_name', property: 'og:site_name', content: 'FEARLESS' },
       { hid: 'og:type', property: 'og:type', content: 'website' },
-      { hid: 'og:url', property: 'og:url', content: 'https://fearlessf.herokuapp.com/' },
+      {
+        hid: 'og:url',
+        property: 'og:url',
+        content: 'https://fearlessf.herokuapp.com/'
+      },
       { hid: 'og:title', property: 'og:title', content: 'FEARLESS' },
-      { hid: 'og:description', property: 'og:description', content: 'FEARLESS - 国内・海外において企画から納品までのブランディングを自社で手がける新時代広告制作会社' },
-      { hid: 'og:image', property: 'og:image', content: 'https://fearlessf.herokuapp.com/ogp.png' }
+      {
+        hid: 'og:description',
+        property: 'og:description',
+        content:
+          'FEARLESS - 国内・海外において企画から納品までのブランディングを自社で手がける新時代広告制作会社'
+      },
+      {
+        hid: 'og:image',
+        property: 'og:image',
+        content: 'https://fearlessf.herokuapp.com/ogp.png'
+      }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      {
+        rel: 'stylesheet',
+        href:
+          'href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,500,700&display=swap&subset=japanese"'
+      }
+    ]
   },
   env: {
     CTF_SPACE_ID: ctfConfig.CTF_SPACE_ID,
@@ -41,11 +73,15 @@ module.exports = {
   /*
    ** Global CSS
    */
-  css: ['~assets/css/animation.scss'],
+  css: ['@/assets/css/global.scss'],
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['~plugins/youtube-embed.js', '~plugins/vimeo-embed.js'],
+  plugins: [
+    '~plugins/youtube-embed.js',
+    '~plugins/vimeo-embed.js',
+    { src: '~/plugins/carousel', ssr: false }
+  ],
   /*
    ** Nuxt.js dev-modules
    */
@@ -57,6 +93,10 @@ module.exports = {
    ** Nuxt.js modules
    */
   modules: ['@nuxtjs/pwa'],
+
+  styleResources: {
+    scss: ['@/assets/scss/_variable.scss']
+  },
   /*
    ** Build configuration
    */
@@ -64,6 +104,6 @@ module.exports = {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) { }
+    extend(config, ctx) {}
   }
 }
