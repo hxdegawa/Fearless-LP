@@ -4,7 +4,7 @@
       .carousel-wrapper
         span.logo-quote-top illustrated by
         span.logo-quote-bottom Seiji Matsumoto
-        Carousel.carousel-box(:per-page="1" :loop="true" :autoplay="true" :centerMode="true" :autoplayTimeout="1500" :paginationSize="5" paginationColor="#cecece")
+        Carousel.carousel-box(:per-page="1" :loop="true" :autoplay="true" :centerMode="true" :autoplayTimeout="500" :paginationSize="5" paginationColor="#cecece")
           Slide.slide-card
             img(src="~/assets/images/logos/white.png")
           Slide.slide-card
@@ -34,23 +34,23 @@
             p Presently, he is involved in various works, as he has collaborated with UNIQLO, The New York Times, McDonald’s, and so on….
             p たくさんの動物たちと過ごした経験から、 主に人と動物をモチーフとした優しさとゆるさが溢れる作品を描く。 2016年にニューヨークへ移住し、個展やアートイベントに参加するなど精力的に活動。 ニューヨークタイムズやマクドナルドなど国内外の様々な分野のアートを手がける。 現在は東京をメインに活動中。
       
-      .columns.left-base
-        .column
-          ul.column__text
-            li Exhibition / エキシビジョン
-            p 2019 Hive gallery (LA)
-            p 2018 Robert miller gallery (NY)
-            p 2018 Solo Exhibition / Café Grumpy  Chelsea (NY)
-            p 2017 Solo Exhibition / ambassador (NY)
-            p 2017 Solo Exhibition / Café Grumpy Fashion District  (Manhattan)
-            p 2017 Group Art Show/ Beyond Studios (NY)
-            p 2017 Solo Exhibition / SBC GALLERY  (Brooklyn)
-            p 2017 Solo Exhibition / Café Grumpy Grand Central Terminal (NY)
-            p 2017 JCAT SHOW CASE / GALLERY MAX NEW YORK (NY)
-            p 2017 Arts in Bushwick Community Day / House of yes (NY)
-        .column
-          .column__img
-            img(src="~/assets/images/seiji-art.png")
+      //- .columns.left-base
+      //-   .column
+      //-     ul.column__text
+      //-       li Exhibition / エキシビジョン
+      //-       p 2019 Hive gallery (LA)
+      //-       p 2018 Robert miller gallery (NY)
+      //-       p 2018 Solo Exhibition / Café Grumpy  Chelsea (NY)
+      //-       p 2017 Solo Exhibition / ambassador (NY)
+      //-       p 2017 Solo Exhibition / Café Grumpy Fashion District  (Manhattan)
+      //-       p 2017 Group Art Show/ Beyond Studios (NY)
+      //-       p 2017 Solo Exhibition / SBC GALLERY  (Brooklyn)
+      //-       p 2017 Solo Exhibition / Café Grumpy Grand Central Terminal (NY)
+      //-       p 2017 JCAT SHOW CASE / GALLERY MAX NEW YORK (NY)
+      //-       p 2017 Arts in Bushwick Community Day / House of yes (NY)
+      //-   .column
+      //-     .column__img
+      //-       img(src="~/assets/images/seiji-art.png")
             
 </template>
 
