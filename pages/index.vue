@@ -62,13 +62,13 @@ main
     .inner-margin
       form(@submit="")
         span name
-        input.name#name(name="name" type="text" placeholder="Jhon Doe" required)
+        input.name#name(name="name" type="text" required)
         
         span email
-        input.email#email(name="email" type="email" placeholder="jhon@doe.com" required)
+        input.email#email(name="email" type="email" required)
         
         span message
-        textarea.message#message(name="message" type="message" placeholder="Offers, Ideas, all welcome!" required)
+        textarea.message#message(name="message" type="message" required)
 
         input.submit(type="submit" value="Submit")
 </template>
