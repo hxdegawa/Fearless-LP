@@ -4,7 +4,7 @@
       .carousel-wrapper
         span.logo-quote-top illustrated by
         span.logo-quote-bottom Seiji Matsumoto
-        Carousel.carousel-box(:per-page="1" :loop="true" :autoplay="true" :centerMode="true" :autoplayTimeout="500" :paginationSize="5" paginationColor="#cecece")
+        Carousel.carousel-box(:per-page="1" :loop="true" :autoplay="true" :centerMode="true" :autoplayTimeout="1500" :paginationSize="5" paginationColor="#cecece")
           Slide.slide-card
             img(src="~/assets/images/logos/white.png")
           Slide.slide-card
@@ -23,6 +23,18 @@
             img(src="~/assets/images/logos/purple.png")
 
     section.description-container.inner-margin
+      .columns.left-base
+        .column
+          .column__text
+            li Concepts / コンセプト
+            p In an era of great change, by going with the flow and combining the fearless courage and joy to challenge and trying to expressing all of the work and a loyal heart as a dog, I managed to make such a cute logo.
+            p 変化の多い時代の中、常に恐れずに(Fearless)挑戦する勇気と楽しさを波乗りと掛け合わせ、全ての仕事における忠誠心を犬で表現してみたらこんなに可愛いロゴが出来上がりました。
+            p 関わる全ての人にフィアレスロゴを好きになってもらえるよう今日もフィアレスはあらゆる波に挑戦しています。
+        .column
+          .column__image
+            .column__img
+              img(src="~/assets/images/seiji-art.png")
+      
       .columns.right-base
         .column
           .column__img
@@ -33,19 +45,6 @@
             p In a town surrounded by beautiful nature in Osaka, he grew up with many kinds of animal. His painting style, which gives him ample warmth and peace, tends to influence and soften people’s minds…especially in this fast-paced world.
             p Presently, he is involved in various works, as he has collaborated with UNIQLO, The New York Times, McDonald’s, and so on….
             p たくさんの動物たちと過ごした経験から、 主に人と動物をモチーフとした優しさとゆるさが溢れる作品を描く。 2016年にニューヨークへ移住し、個展やアートイベントに参加するなど精力的に活動。 ニューヨークタイムズやマクドナルドなど国内外の様々な分野のアートを手がける。 現在は東京をメインに活動中。
-        
-      .columns.left-base
-        .column
-          .column__text
-            li Concepts / コンセプト
-            p Under the society of divercity, We are always looking for courage and happiness of challanging.
-            p We've symbolized those courage as wave, and our Loyality as a cute dog.
-            p 変化の多い時代の中、常に恐れずに(Fearless)挑戦する勇気と楽しさを波乗りと掛け合わせ、全ての仕事における忠誠心を犬で表現してみたらこんなに可愛いロゴが出来上がりました。
-            p 関わる全ての人にフィアレスロゴを好きになってもらえるよう今日もフィアレスはあらゆる波に挑戦しています。
-        .column
-          .column__image
-            .column__img
-              img(src="~/assets/images/seiji-art.png")
 
       //- .columns.left-base
       //-   .column
@@ -140,6 +139,8 @@ export default {
 }
 
 .description-container {
+  padding: 0 20px;
+
   .columns {
     display: grid;
 
