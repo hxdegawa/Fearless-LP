@@ -10,7 +10,7 @@
           vimeo-player(ref="player" :video-id="article.fields.videoLink" player-height="340")
 
         .text-info
-          .date {{ article.fields.date }}
+          //- .date {{ article.fields.date }}
           .content(v-html="sanitizedDesc(article.fields.description)")
           .credits(v-if="article.fields.collaborators")
             .col-1-2
