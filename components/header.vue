@@ -14,7 +14,8 @@ export default {
         {
           rel: 'preload',
           as: 'video',
-          href: '/reel_2019.webm'
+          href:
+            'https://drive.google.com/uc?export=view&id=1lv6C5zJgQxFr6Ri3CV-OkHepei_VLBqI'
         }
       ]
     }
