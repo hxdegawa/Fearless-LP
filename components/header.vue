@@ -14,7 +14,7 @@ export default {
         {
           rel: 'preload',
           as: 'video',
-          href: '/reel_2019.mp4'
+          href: '/reel_2019.webm'
         }
       ]
     }
