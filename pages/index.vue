@@ -434,13 +434,24 @@ section {
       }
 
       .submit {
+        position: relative;
         display: block;
-        max-width: 140px;
+        background-color: #ffc20e;
+        padding: 10px 30px;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 2px;
+        text-decoration: none;
+        border-radius: 5px;
+        max-width: 240px;
         margin: 0 auto;
-        padding: 10px 20px;
+        transform: scale(1);
+        transition: 0.1s ease;
         cursor: pointer;
-        letter-spacing: 1px;
-        font-size: 14px;
+
+        &:hover {
+          transform: scale(1.1);
+        }
       }
     }
   }
