@@ -127,12 +127,17 @@ export default {
   .carousel-box {
     width: calc(100vw - 3px);
 
+    @media screen and (max-width: 768px) {
+      width: 100vw;
+    }
+
     .slide-card {
       width: 100%;
 
       img {
         display: block;
         margin: 0 auto;
+        transform: translateX(-20px);
       }
     }
   }
