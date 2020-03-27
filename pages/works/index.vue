@@ -2,7 +2,7 @@
 .works
   .inner-margin
     .work-cards
-      Card(v-for="(work, i) in works" :key="i" :title="work.fields.title" :slug="work.fields.slug" :date="work.fields.date" :thumbnail="work.fields.thumbnail" :id="work.sys.id" :dark="true")
+      Card(v-for="(work, i) in works" :key="i" :title="work.fields.title" :slug="work.fields.slug" :date="work.fields.date" :thumbnail="work.fields.thumbnail" :id="work.sys.id")
 </template>
 
 <script>
@@ -30,10 +30,6 @@ export default {
 </script>
 
 <style lang="scss">
-body {
-  background-color: #000000;
-}
-
 .works {
   .inner-margin {
     max-width: 1280px;

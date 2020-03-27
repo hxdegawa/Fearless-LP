@@ -84,7 +84,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .slug {
   max-width: 960px;
   margin: 0 auto;
@@ -130,6 +130,10 @@ export default {
 
       .youtube {
         margin-bottom: 40px;
+
+        div > iframe {
+          max-width: 100%;
+        }
 
         iframe {
           position: relative;

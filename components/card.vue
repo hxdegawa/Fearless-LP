@@ -25,9 +25,6 @@ export default {
     date: { type: String, default: '' },
     thumbnail: { type: Object, required: true },
     dark: { type: Boolean, default: false }
-  },
-  mounted() {
-    console.log(this.dark)
   }
 }
 </script>

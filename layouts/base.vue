@@ -36,8 +36,6 @@ export default {
     }
   },
   mounted() {
-    console.log(this.isInitRender)
-
     if (this.$route.query.back !== 'true') {
       if (this.isInitRender) {
         this.loadProcess = 0
