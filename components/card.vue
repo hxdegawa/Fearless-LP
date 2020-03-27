@@ -6,7 +6,7 @@ nuxt-link(v-if="isFake" to="/works").link
       .text-info
         span.title.fake {{ title }}
 nuxt-link(v-else :to="{ name: 'works-slug', params: { slug: slug }}").link
-  .card
+  .card(:class="`${dark ? 'dark' : ''}`")
     .card-contents
       img(v-if="isFake" :src='`http:${thumbnail.fields.file.url}`').thumbnail
       img(v-else :src='`http:${thumbnail.fields.file.url}?h=150`').thumbnail
@@ -23,7 +23,11 @@ export default {
     title: { type: String, required: true },
     slug: { type: String, default: '' },
     date: { type: String, default: '' },
-    thumbnail: { type: Object, required: true }
+    thumbnail: { type: Object, required: true },
+    dark: { type: Boolean, default: false }
+  },
+  mounted() {
+    console.log(this.dark)
   }
 }
 </script>
@@ -41,6 +45,12 @@ export default {
       .card-contents {
         transform: translate(0px, -10px);
         filter: drop-shadow(2px 12px 10px #b8b8b8);
+      }
+    }
+
+    &.dark {
+      .card-contents {
+        filter: unset;
       }
     }
 

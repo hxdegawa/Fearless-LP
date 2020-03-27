@@ -84,7 +84,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .slug {
   max-width: 960px;
   margin: 0 auto;
@@ -95,7 +95,7 @@ export default {
     border-radius: 5px;
     overflow: hidden;
     margin-bottom: 120px;
-    filter: drop-shadow(2px 2px 10px #b8b8b8);
+    // filter: drop-shadow(2px 2px 10px #b8b8b8);
 
     @media screen and (max-width: 640px) {
       margin-bottom: 0;
