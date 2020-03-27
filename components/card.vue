@@ -9,7 +9,7 @@ nuxt-link(v-else :to="{ name: 'works-slug', params: { slug: slug }}").link
   .card(:class="`${dark ? 'dark' : ''}`")
     .card-contents
       img(v-if="isFake" :src='`http:${thumbnail.fields.file.url}`').thumbnail
-      img(v-else :src='`http:${thumbnail.fields.file.url}?h=150`').thumbnail
+      img(v-else :src='`http:${thumbnail.fields.file.url}?h=300`').thumbnail
       .text-info
         span.title {{ title }}
         //- span.date {{ date }}
