@@ -102,6 +102,22 @@ export default {
 </script>
 
 <style lang="scss">
+input[type='submit'],
+input[type='button'] {
+  border-radius: 0;
+  -webkit-box-sizing: content-box;
+  -webkit-appearance: button;
+  appearance: button;
+  border: none;
+  box-sizing: border-box;
+  &::-webkit-search-decoration {
+    display: none;
+  }
+  &::focus {
+    outline-offset: -2px;
+  }
+}
+
 section {
   box-sizing: border-box;
   padding: 60px 20px;
