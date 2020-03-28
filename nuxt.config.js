@@ -82,7 +82,7 @@ module.exports = {
     '~plugins/vimeo-embed.js',
     { src: '~/plugins/carousel', ssr: false }
   ],
-  // serverMiddleware: [{ path: '~/api/', handler: '~/api/' }],
+  serverMiddleware: [{ path: '~/api/', handler: '~/api/' }],
   /*
    ** Nuxt.js dev-modules
    */

@@ -60,7 +60,7 @@ main
   section.contact-section
     Heading Contact
     .inner-margin
-      form(@submit="")
+      form(method="POST" action="/api/contact")
         span name
         input.name#name(name="name" type="text" required)
         
