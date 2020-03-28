@@ -18,7 +18,7 @@ module.exports = {
       { name: 'twitter:card', content: 'summary_large_image' },
       {
         name: 'twitter:image',
-        content: 'https://new.fearlessf.com/ogp.png'
+        content: 'http://new.fearlessf.com/ogp.png'
       },
       {
         name: 'twitter:description',
@@ -37,7 +37,7 @@ module.exports = {
       {
         hid: 'og:url',
         property: 'og:url',
-        content: 'https://new.fearlessf.com/'
+        content: 'http://new.fearlessf.com/'
       },
       { hid: 'og:title', property: 'og:title', content: 'FEARLESS' },
       {
@@ -49,7 +49,7 @@ module.exports = {
       {
         hid: 'og:image',
         property: 'og:image',
-        content: 'https://new.fearlessf.com/ogp.png'
+        content: 'http://new.fearlessf.com/ogp.png'
       }
     ],
     link: [
