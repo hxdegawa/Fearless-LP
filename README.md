@@ -1,10 +1,10 @@
-# Fearless-LP
+# Fearless
 
 > Corporate website for Fearless inc
 
 ## Build Setup
 
-``` bash
+```bash
 # install dependencies
 $ yarn install
 

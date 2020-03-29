@@ -64,7 +64,7 @@ app.post('/', (req, res) => {
   const someInvalid = sanitizedAttributes.some((r) => !r)
 
   if (someInvalid) {
-    return res.status(422).json({ error: 'Ugh.. That looks unprocessable!' })
+    return res.status(422).json({ error: '送信中にエラーが発生しました お手数ですが info@fearlessf.com にメールで直接お問い合わせください' })
   }
 
   sendMail(...sanitizedAttributes, res)
