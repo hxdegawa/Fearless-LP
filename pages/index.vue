@@ -92,6 +92,7 @@ export default {
     return client
       .getEntries(env.CTF_BLOG_POST_TYPE_ID)
       .then((entries) => {
+        console.log(entries.items[0])
         return {
           posts: entries.items
         }
