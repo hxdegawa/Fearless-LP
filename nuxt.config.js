@@ -51,6 +51,10 @@ module.exports = {
         hid: 'og:image',
         property: 'og:image',
         content: 'https://fearlessf.com/ogp.png'
+      },
+      {
+        name: 'google',
+        content: 'notranslate'
       }
     ],
     link: [
