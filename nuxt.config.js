@@ -1,3 +1,4 @@
+require('dotenv').config()
 const { getConfigForKeys } = require('./lib/config.js')
 const ctfConfig = getConfigForKeys([
   'CTF_BLOG_POST_TYPE_ID',
@@ -64,7 +65,8 @@ module.exports = {
   env: {
     CTF_SPACE_ID: ctfConfig.CTF_SPACE_ID,
     CTF_CDA_ACCESS_TOKEN: ctfConfig.CTF_CDA_ACCESS_TOKEN,
-    CTF_BLOG_POST_TYPE_ID: ctfConfig.CTF_BLOG_POST_TYPE_ID
+    CTF_BLOG_POST_TYPE_ID: ctfConfig.CTF_BLOG_POST_TYPE_ID,
+    GA_TOKEN: process.env.GA_TOKEN
   },
   /*
    ** Customize the progress-bar color
@@ -80,7 +82,8 @@ module.exports = {
   plugins: [
     '~plugins/youtube-embed.js',
     '~plugins/vimeo-embed.js',
-    { src: '~/plugins/carousel', ssr: false }
+    { src: '~/plugins/carousel', ssr: false },
+    { src: '~plugins/ga.js', mode: 'client' }
   ],
   serverMiddleware: [{ path: '~/api/', handler: '~/api/' }],
   /*
