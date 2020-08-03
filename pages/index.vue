@@ -60,17 +60,19 @@ main
   section.contact-section
     Heading Contact
     .inner-margin
-      form(method="POST" action="/api/contact")
-        span name
-        input.name#name(name="name" type="text" required)
+      .iframe-wrapper    
+        iframe(src="https://tayori.com/form/10633b11965f4fa506542bb39bd804d52a549865" width="100%" height="100%")
+      //- form(method="POST" action="/api/contact")
+      //-   span name
+      //-   input.name#name(name="name" type="text" required)
         
-        span email
-        input.email#email(name="email" type="email" required)
+      //-   span email
+      //-   input.email#email(name="email" type="email" required)
         
-        span message
-        textarea.message#message(name="message" type="message" required)
+      //-   span message
+      //-   textarea.message#message(name="message" type="message" required)
 
-        input.submit(type="submit" value="Submit")
+      //-   input.submit(type="submit" value="Submit")
 </template>
 
 <script>
@@ -415,6 +417,29 @@ section {
 
   &.contact-section {
     background-color: #ffffff;
+
+    .iframe-wrapper {
+      position: relative;
+
+      &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 70px;
+        background-color: #ffffff;
+        width: 100%;
+
+        @media screen and (max-width: 640px) {
+          height: 140px;
+        }
+      }
+
+      iframe {
+        min-height: 600px;
+        border: none;
+      }
+    }
 
     form {
       background-color: #ffffff;
