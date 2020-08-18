@@ -44,6 +44,7 @@
 
 <script>
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
+import { BLOCKS } from '@contentful/rich-text-types'
 import { getIdFromURL } from 'vue-youtube-embed'
 import { createClient } from '~/plugins/contentful.js'
 
@@ -70,9 +71,23 @@ export default {
       })
       .catch(console.error)
   },
+  mounted() {
+    console.log(this.article.fields.description)
+  },
   methods: {
     sanitizedDesc(desc) {
-      return documentToHtmlString(desc)
+      const options = {
+        renderNode: {
+          [BLOCKS.EMBEDDED_ASSET]: ({
+            data: {
+              target: { fields }
+            }
+          }) =>
+            `<img src="${fields.file.url}" height="300px" width="${fields.file.details.image.width}" alt="${fields.description}"/>`
+        }
+      }
+
+      return documentToHtmlString(desc, options)
     },
     extractYoutubeId(url) {
       return getIdFromURL(url)
@@ -154,6 +169,11 @@ export default {
 
       .text-info {
         padding: 20px;
+
+        img {
+          object-fit: cover;
+          width: 100%;
+        }
 
         h1,
         h2,

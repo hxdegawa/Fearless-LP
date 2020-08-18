@@ -100,6 +100,11 @@ export default {
         }
       })
       .catch(console.error)
+  },
+  mounted() {
+    this.posts.sort((a, b) => {
+      return a.fields.priority - b.fields.priority
+    })
   }
 }
 </script>

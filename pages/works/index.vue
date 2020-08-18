@@ -25,6 +25,11 @@ export default {
         }
       })
       .catch(console.error)
+  },
+  mounted() {
+    this.works.sort((a, b) => {
+      return a.fields.priority - b.fields.priority
+    })
   }
 }
 </script>
