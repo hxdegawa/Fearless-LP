@@ -9,6 +9,18 @@
         .youtube(v-else)
           vimeo-player(ref="player" :video-id="article.fields.videoLink" player-height="340")
 
+        .youtube(v-if="article.fields.videoLink2 && article.fields.videoLink2.match('youtube.com')")
+          youtube(:video-id="extractYoutubeId(article.fields.videoLink2)")
+          .height-keeper
+        .youtube(v-else-if="article.fields.videoLink2")
+          vimeo-player(ref="player" :video-id="article.fields.videoLink2" player-height="340")
+
+        .youtube(v-if="article.fields.videoLink3 && article.fields.videoLink3.match('youtube.com')")
+          youtube(:video-id="extractYoutubeId(article.fields.videoLink3)")
+          .height-keeper
+        .youtube(v-else-if="article.fields.videoLink3")
+          vimeo-player(ref="player" :video-id="article.fields.videoLink3" player-height="340")
+
         .text-info
           //- .date {{ article.fields.date }}
           .content(v-html="sanitizedDesc(article.fields.description)")
