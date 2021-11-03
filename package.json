@@ -24,7 +24,7 @@
     "nodemailer-promise": "^2.0.0",
     "nuxt": "^2.0.0",
     "serialize-javascript": "^2.1.2",
-    "validator": "^13.0.0",
+    "validator": "^13.7.0",
     "vue-carousel": "^0.18.0",
     "vue-vimeo-player": "^0.0.10",
     "vue-youtube-embed": "^2.2.2",
